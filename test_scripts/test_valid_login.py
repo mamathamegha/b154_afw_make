@@ -18,4 +18,4 @@ class Test_ValidLogin(BaseTest):
         # 4. verify that home page is displayed
         home_page=HomePage(self.page)
         result=home_page.verify_homepage_is_displayed()
-        assert False
+        assert result

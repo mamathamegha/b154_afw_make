@@ -81,16 +81,14 @@ class BaseTest:
 
 
     @pytest.fixture(autouse=True)
-    def post_condition(self,request):
+    def post_condition(self):
         yield
         print("\npost condition")
 
-        if request.node.rep_call.failed:
-            print("Test Failed Taking screenshot")
-            allure.attach(self.page.screenshot(),name=self.test_name,
+        print("Test Failed Taking screenshot")
+        allure.attach(self.page.screenshot(),name=self.test_name,
                           attachment_type=allure.attachment_type.PNG)
-        else:
-            print("No Screenshot")
+
 
         print("close the page")
         self.page.close()
