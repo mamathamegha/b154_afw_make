@@ -1,6 +1,8 @@
 name: Run Tests
 
-on: [push]
+on:
+  schedule:
+    - cron:'13 03 * * *' #IST=UTC+5.30
 
 jobs:
   test:
